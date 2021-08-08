@@ -1,0 +1,14 @@
+### A simple replay steps#
+
+We leverage aflnet-replay to reproduce protocol bugs. aflnet-replay is a client that can send messages given to servers.
+
+1. compile aflnet-replay with the following commands and then aflnet-replay appears.
+	cd replay && make
+
+2. open tested servers, for TinyDTLS like:
+   ./tests/dtls-server
+   
+3. send packers to servers, for TinyDTLS like:
+   ./aflnet-replay ../illegMemAccess.raw DTLS12 20220
+	
+After that, the tested servers are crashed with given packets illegMemAccess.raw. 
